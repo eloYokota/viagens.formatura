@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextTrip - Viagens de Formatura Inesquecíveis</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Google Fonts: Poppins & Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+sans: ['Poppins', 'sans-serif'],
+heading: ['Montserrat', 'sans-serif'],
+},
+colors: {
+brand: {
+neonYellow: '#FFE600',
+neonPink: '#FF007A',
+neonPurple: '#7928CA',
+neonCyan: '#00DFD8',
+dark: '#0F172A',
+cardBg: '#1E293B'
+}
+}
+}
+}
+}
+</script>
+<style>
+.gradient-text {
+background: linear-gradient(135deg, #FF007A 0%, #FFE600 50%, #00DFD8 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.hero-bg {
+background: radial-gradient(circle at top right, rgba(255, 0, 122, 0.3), transparent 40%),
+radial-gradient(circle at bottom left, rgba(0, 223, 216, 0.25), transparent 40%),
+#0F172A;
+}
+.glass-card {
+background: rgba(30, 41, 59, 0.7);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.glow-button {
+transition: all 0.3s ease;
+box-shadow: 0 0 15px rgba(255, 0, 122, 0.4);
+}
+.glow-button:hover {
+box-shadow: 0 0 25px rgba(255, 0, 122, 0.8);
+transform: translateY(-2px);
+}
+</style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased min-h-screen flex flex-col">
+
+<!-- NAV BAR -->
+<nav class="fixed w-full z-50 glass-card top-0 left-0 border-b border-slate-800 px-4 py-3">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<!-- Logo -->
+<a href="#" onclick="showSection('home')" class="flex items-center gap-2 cursor-pointer">
+<span class="text-3xl font-heading font-black tracking-wider gradient-text">NEXT<span class="text-white">TRIP</span></span>
+<span class="bg-brand-neonPink text-xs text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-widest hidden sm:inline-block">Formatura</span>
+</a>
+
+<!-- Menu Desktop -->
+<div class="hidden md:flex gap-6 items-center font-semibold text-sm">
+<button onclick="showSection('nono')" class="hover:text-brand-neonCyan transition">9º Ano</button>
+<button onclick="showSection('terceiro')" class="hover:text-brand-neonPink transition">3º Ensino Médio</button>
+<button onclick="showSection('faculdade')" class="hover:text-brand-neonYellow transition">Faculdade</button>
+<button onclick="scrollToCalc()" class="hover:text-brand-neonCyan transition"><i class="fa-solid fa-calculator mr-1"></i> Simular Valor</button>
+</div>
+
+<!-- Botão Orçamento / Redes -->
+<div class="flex items-center gap-3">
+<a href="https://instagram.com" target="_blank" class="text-xl hover:text-brand-neonPink transition p-1" title="Instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a href="https://wa.me/5511999999999" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm flex items-center gap-2 transition shadow-lg shadow-green-500/20">
+<i class="fa-brands fa-whatsapp text-lg"></i>
+<span class="hidden sm:inline">WhatsApp</span>
+</a>
+</div>
+</div>
+</nav>
+
+<!-- MAIN HERO CONTENT / NAVIGATION CONTAINER -->
+<main class="pt-24 flex-grow">
+
+<!-- HOME / SELEÇÃO DE TURMAS -->
+<section id="section-home" class="hero-bg py-12 px-4 min-h-[85vh] flex flex-col justify-center items-center">
+<div class="max-w-5xl mx-auto text-center mb-12">
+<span class="bg-slate-800 text-brand-neonCyan font-bold uppercase text-xs px-4 py-1.5 rounded-full border border-brand-neonCyan/30 tracking-widest inline-block mb-4">
+🎉 A Melhor Viagem da Sua Vida Começa Aqui!
+</span>
+<h1 class="text-4xl sm:text-6xl font-heading font-black tracking-tight mb-6 uppercase">
+Escolha a sua turma e monte a sua <span class="gradient-text">festa inesquecível</span>
+</h1>
+<p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
+Resorts exclusivos, baladas imperdíveis, gincanas incríveis e total flexibilidade de dias para o seu grupo fechar a melhor viagem de formatura!
+</p>
+</div>
+
+<!-- SELEÇÃO DE CATEGORIAS / ENTRADAS -->
+<div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+
+<!-- CARD 9º ANO -->
+<div onclick="showSection('nono')" class="group cursor-pointer rounded-3xl overflow-hidden glass-card border-2 border-slate-700 hover:border-brand-neonCyan transition-all duration-300 transform hover:-translate-y-2 relative flex flex-col">
+<div class="h-56 overflow-hidden relative">
+<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Fazenda - 9º Ano" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+<span class="absolute top-4 left-4 bg-brand-neonCyan text-slate-950 font-black px-3 py-1 rounded-full text-xs uppercase tracking-wider">
+Ensino Fundamental
+</span>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between">
+<div>
+<h3 class="text-2xl font-heading font-extrabold text-white mb-2 group-hover:text-brand-neonCyan transition">
+9º Ano Fundamental
+</h3>
+<p class="text-slate-400 text-sm mb-4">
+NR Resort, parques aquáticos, acampamentos de aventura, gincanas integrativas, baladas teens e muita segurança!
+</p>
+</div>
+<div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-700/50">
+<span class="text-xs text-slate-400">Diárias a partir de: <strong class="text-brand-neonYellow text-base block">R$ 220/dia</strong></span>
+<span class="bg-slate-800 text-brand-neonCyan font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1 group-hover:bg-brand-neonCyan group-hover:text-slate-900 transition">
+Ver Destinos <i class="fa-solid fa-arrow-right"></i>
+</span>
+</div>
+</div>
+</div>
+
+<!-- CARD 3º ANO EM -->
+<div onclick="showSection('terceiro')" class="group cursor-pointer rounded-3xl overflow-hidden glass-card border-2 border-slate-700 hover:border-brand-neonPink transition-all duration-300 transform hover:-translate-y-2 relative flex flex-col">
+<div class="h-56 overflow-hidden relative">
+<img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80" alt="Festa de Formatura - 3º Ano" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+<span class="absolute top-4 left-4 bg-brand-neonPink text-white font-black px-3 py-1 rounded-full text-xs uppercase tracking-wider">
+Ensino Médio
+</span>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between">
+<div>
+<h3 class="text-2xl font-heading font-extrabold text-white mb-2 group-hover:text-brand-neonPink transition">
+3º Ano Médio
+</h3>
+<p class="text-slate-400 text-sm mb-4">
+Porto Seguro, Florianópolis, Maresias e os melhores resorts do litoral com sunset parties, DJs e atrações top.
+</p>
+</div>
+<div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-700/50">
+<span class="text-xs text-slate-400">Diárias a partir de: <strong class="text-brand-neonYellow text-base block">R$ 310/dia</strong></span>
+<span class="bg-slate-800 text-brand-neonPink font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1 group-hover:bg-brand-neonPink group-hover:text-white transition">
+Ver Destinos <i class="fa-solid fa-arrow-right"></i>
+</span>
+</div>
+</div>
+</div>
+
+<!-- CARD FACULDADE -->
+<div onclick="showSection('faculdade')" class="group cursor-pointer rounded-3xl overflow-hidden glass-card border-2 border-slate-700 hover:border-brand-neonYellow transition-all duration-300 transform hover:-translate-y-2 relative flex flex-col">
+<div class="h-56 overflow-hidden relative">
+<img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" alt="Resort de Luxo - Faculdade" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+<span class="absolute top-4 left-4 bg-brand-neonYellow text-slate-950 font-black px-3 py-1 rounded-full text-xs uppercase tracking-wider">
+Universitários
+</span>
+</div>
+<div class="p-6 flex-grow flex flex-col justify-between">
+<div>
+<h3 class="text-2xl font-heading font-extrabold text-white mb-2 group-hover:text-brand-neonYellow transition">
+Formatura Faculdade
+</h3>
+<p class="text-slate-400 text-sm mb-4">
+Cancún, Cruzeiro Fretado, Capitólio, Búzios e beach clubs abertos com open bar completo para comemorar o diploma.
+</p>
+</div>
+<div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-700/50">
+<span class="text-xs text-slate-400">Diárias a partir de: <strong class="text-brand-neonYellow text-base block">R$ 390/dia</strong></span>
+<span class="bg-slate-800 text-brand-neonYellow font-bold text-slate-950 px-4 py-2 rounded-xl text-xs flex items-center gap-1 group-hover:bg-brand-neonYellow transition">
+Ver Destinos <i class="fa-solid fa-arrow-right"></i>
+</span>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- SEÇÃO DE VIAGENS - DINÂMICA VIA JS -->
+<section id="destinos-container" class="py-12 px-4 max-w-7xl mx-auto hidden">
+<!-- Cabeçalho Dinâmico da Turma -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 pb-6 border-b border-slate-800">
+<div>
+<button onclick="showSection('home')" class="text-xs text-slate-400 hover:text-white mb-2 flex items-center gap-1">
+<i class="fa-solid fa-arrow-left"></i> Voltar para seleção de turmas
+</button>
+<h2 id="categoria-titulo" class="text-3xl sm:text-4xl font-heading font-black text-white uppercase"></h2>
+<p id="categoria-subtitulo" class="text-slate-400 text-sm mt-1"></p>
+</div>
+<!-- Filtros Dinâmicos -->
+<div class="flex gap-2 flex-wrap">
+<span class="bg-slate-800 text-xs px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300">
+⚡ Pacotes Personalizáveis (Escolha a qtd. de dias)
+</span>
+<span class="bg-slate-800 text-xs px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300">
+🎉 Monitoria + Festas Inclusas
+</span>
+</div>
+</div>
+
+<!-- Grid dos Cards de Destinos -->
+<div id="cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Preenchido dinamicamente pelo JavaScript -->
+</div>
+</section>
+
+<!-- CALCULADORA RÁPIDA DE ORÇAMENTO DA VIAGEM -->
+<section id="calculadora" class="py-16 px-4 bg-slate-900 border-t border-b border-slate-800">
+<div class="max-w-4xl mx-auto glass-card rounded-3xl p-6 sm:p-10 border border-slate-700 shadow-2xl relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-neonPink/20 rounded-full blur-3xl"></div>
+<div class="text-center mb-8 relative z-10">
+<h2 class="text-2xl sm:text-3xl font-heading font-black text-white uppercase">
+Simulador de <span class="gradient-text">Orçamento em Grupo</span>
+</h2>
+<p class="text-slate-400 text-sm mt-2">
+Querem fechar quantos dias quiserem? Faça uma estimativa rápida de quanto vai custar por pessoa!
+</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 relative z-10">
+<!-- Turma -->
+<div>
+<label class="block text-xs font-bold text-slate-300 uppercase mb-2">Selecione a Turma</label>
+<select id="calc-turma" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-neonPink outline-none">
+<option value="220">9º Ano (Média R$ 220/dia)</option>
+<option value="310" selected>3º Ano Médio (Média R$ 310/dia)</option>
+<option value="390">Faculdade (Média R$ 390/dia)</option>
+</select>
+</div>
+
+<!-- Quantidade de Dias -->
+<div>
+<label class="block text-xs font-bold text-slate-300 uppercase mb-2">Quantidade de Dias</label>
+<select id="calc-dias" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-neonPink outline-none">
+<option value="3">3 Dias / 2 Noites</option>
+<option value="4" selected>4 Dias / 3 Noites</option>
+<option value="5">5 Dias / 4 Noites</option>
+<option value="7">7 Dias / 6 Noites</option>
+</select>
+</div>
+
+<!-- Número de Alunos -->
+<div>
+<label class="block text-xs font-bold text-slate-300 uppercase mb-2">Qtd. de Alunos (Aprox.)</label>
+<input id="calc-alunos" type="number" min="10" value="30" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-neonPink outline-none">
+</div>
+</div>
+
+<!-- Resultado Calculado -->
+<div class="bg-slate-950/80 rounded-2xl p-6 border border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+<div>
+<span class="text-xs text-slate-400 block">Valor estimado por aluno:</span>
+<div id="resultado-por-aluno" class="text-3xl font-heading font-black text-brand-neonYellow">R$ 1.240,00</div>
+<span class="text-[11px] text-slate-500">*Incluso hospedagem, festas com DJ, monitoria e alimentação base.</span>
+</div>
+<a id="btn-orcamento-whatsapp" href="#" target="_blank" class="w-full md:w-auto bg-brand-neonPink hover:bg-pink-600 text-white font-black px-6 py-3 rounded-xl text-sm uppercase tracking-wider glow-button flex items-center justify-center gap-2 text-center">
+<i class="fa-brands fa-whatsapp text-lg"></i> Solicitar Orçamento Oficial
+</a>
+</div>
+</div>
+</section>
+
+<!-- SEÇÃO POR QUE NOS ESCOLHER -->
+<section class="py-16 px-4 max-w-7xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-heading font-black text-white uppercase">Diferenciais da <span class="gradient-text">NextTrip</span></h2>
+<p class="text-slate-400 text-sm mt-2">Por que somos a agência número 1 em comissões de formatura</p>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-card p-6 rounded-2xl border border-slate-800 text-center">
+<div class="w-14 h-14 bg-brand-neonPink/20 text-brand-neonPink rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+<i class="fa-solid fa-calendar-check"></i>
+</div>
+<h3 class="font-bold text-lg mb-2">Dias Flexíveis</h3>
+<p class="text-slate-400 text-xs">Sua turma decide a duração perfeita da viagem. De 3 a 7 dias sem burocracia.</p>
+</div>
+
+<div class="glass-card p-6 rounded-2xl border border-slate-800 text-center">
+<div class="w-14 h-14 bg-brand-neonCyan/20 text-brand-neonCyan rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+<i class="fa-solid fa-champagne-glasses"></i>
+</div>
+<h3 class="font-bold text-lg mb-2">Festas & Brincadeiras</h3>
+<p class="text-slate-400 text-xs">Estrutura de som, luz, DJs renomados, micaretas exclusivas e gincanas insanas.</p>
+</div>
+
+<div class="glass-card p-6 rounded-2xl border border-slate-800 text-center">
+<div class="w-14 h-14 bg-brand-neonYellow/20 text-brand-neonYellow rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+<h3 class="font-bold text-lg mb-2">Segurança Total</h3>
+<p class="text-slate-400 text-xs">Equipe médica 24h, monitores treinados e pulseiras de identificação por QR Code.</p>
+</div>
+
+<div class="glass-card p-6 rounded-2xl border border-slate-800 text-center">
+<div class="w-14 h-14 bg-brand-neonPurple/20 text-brand-neonPurple rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+<i class="fa-solid fa-credit-card"></i>
+</div>
+<h3 class="font-bold text-lg mb-2">Pagamento Individual</h3>
+<p class="text-slate-400 text-xs">Cada aluno tem seu próprio portal de pagamento parcelado no boleto ou cartão.</p>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER / CONTATO / CONTATOS SOCIAIS -->
+<footer class="bg-slate-950 border-t border-slate-800 pt-12 pb-8 px-4">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+
+<!-- Coluna Logo e Apresentação -->
+<div class="space-y-4">
+<span class="text-2xl font-heading font-black tracking-wider gradient-text">NEXT<span class="text-white">TRIP</span></span>
+<p class="text-slate-400 text-xs leading-relaxed">
+Especialistas em criar as melhores memórias de formatura do Brasil. Atendimento personalizado para comissões de formandos.
+</p>
+<div class="flex gap-3 text-lg">
+<a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-neonPink transition"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fa-brands fa-facebook"></i></a>
+<a href="https://tiktok.com" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-neonCyan hover:text-slate-950 transition"><i class="fa-brands fa-tiktok"></i></a>
+<a href="https://wa.me/5511999999999" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</div>
+
+<!-- Coluna Navegação -->
+<div>
+<h4 class="font-bold text-sm text-white mb-4 uppercase tracking-wider border-b border-slate-800 pb-2">Turmas</h4>
+<ul class="space-y-2 text-xs text-slate-400">
+<li><button onclick="showSection('nono')" class="hover:text-brand-neonCyan transition">9º Ano Ensino Fundamental</button></li>
+<li><button onclick="showSection('terceiro')" class="hover:text-brand-neonPink transition">3º Ano Ensino Médio</button></li>
+<li><button onclick="showSection('faculdade')" class="hover:text-brand-neonYellow transition">Formatura Universitária</button></li>
+<li><button onclick="scrollToCalc()" class="hover:text-white transition">Simular Orçamento</button></li>
+</ul>
+</div>
+
+<!-- Coluna Fale Conosco -->
+<div>
+<h4 class="font-bold text-sm text-white mb-4 uppercase tracking-wider border-b border-slate-800 pb-2">Atendimento</h4>
+<ul class="space-y-3 text-xs text-slate-400">
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-phone text-brand-neonCyan"></i> (11) 4003-9999
+</li>
+<li class="flex items-center gap-2">
+<i class="fa-brands fa-whatsapp text-green-400"></i> (11) 99999-9999
+</li>
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-envelope text-brand-neonPink"></i> contato@nexttripformaturas.com.br
+</li>
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-location-dot text-brand-neonYellow"></i> Av. Paulista, 1000 - São Paulo / SP
+</li>
+</ul>
+</div>
+
+<!-- Coluna Horário de Atendimento -->
+<div>
+<h4 class="font-bold text-sm text-white mb-4 uppercase tracking-wider border-b border-slate-800 pb-2">Comissão de Formatura</h4>
+<p class="text-xs text-slate-400 mb-3">
+Agende uma reunião presencial ou online com nossos consultores para apresentação do projeto no seu colégio ou faculdade.
+</p>
+<a href="https://wa.me/5511999999999" target="_blank" class="inline-block bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-700 transition">
+<i class="fa-solid fa-calendar-plus text-brand-neonYellow mr-1"></i> Agendar Apresentação
+</a>
+</div>
+
+</div>
+
+<div class="max-w-7xl mx-auto border-t border-slate-800/80 pt-6 text-center text-xs text-slate-500">
+<p>© 2026 NextTrip Formaturas - Todos os direitos reservados. Fotos meramente ilustrativas de eventos passados.</p>
+</div>
+</footer>
+
+<!-- MODAL DE DETALHES DO DESTINO / ORÇAMENTO -->
+<div id="modal-destino" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+<div class="glass-card max-w-2xl w-full rounded-3xl border border-slate-700 overflow-hidden flex flex-col max-h-[90vh]">
+<div class="relative h-48 sm:h-64">
+<img id="modal-img" src="" alt="Destino" class="w-full h-full object-cover">
+<button onclick="closeModal()" class="absolute top-4 right-4 bg-slate-900/80 text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-brand-neonPink transition">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<span id="modal-badge" class="absolute bottom-4 left-4 bg-brand-neonPink text-white font-bold text-xs px-3 py-1 rounded-full uppercase"></span>
+</div>
+<div class="p-6 overflow-y-auto flex-grow space-y-4">
+<h3 id="modal-title" class="text-2xl font-heading font-black text-white"></h3>
+<p id="modal-desc" class="text-slate-300 text-sm leading-relaxed"></p>
+
+<div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+<h4 class="text-xs font-bold text-brand-neonYellow uppercase mb-2">O que o pacote inclui:</h4>
+<ul id="modal-inclusive" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+<!-- Preenchido via JS -->
+</ul>
+</div>
+
+<div class="flex justify-between items-center pt-2">
+<div>
+<span class="text-xs text-slate-400">Valor Médio da Diária:</span>
+<div id="modal-price" class="text-2xl font-heading font-black text-brand-neonCyan"></div>
+</div>
+<a id="modal-whatsapp-btn" href="#" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-3 rounded-xl text-xs flex items-center gap-2 transition shadow-lg">
+<i class="fa-brands fa-whatsapp text-base"></i> Fechar este Destino
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+// BASE DE DADOS DOS DESTINOS POR CATEGORIA DE TURMA
+const destinosData = {
+nono: {
+titulo: "Viagens para o 9º Ano",
+subtitulo: "Segurança, diversão sem parar, gincanas e integração para marcar a transição para o ensino médio!",
+cor: "brand-neonCyan",
+locais: [
+{
+id: 'n1',
+nome: "NR Resort - Serra da Mantiqueira (SP)",
+foto: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80",
+diaria: 230,
+resumo: "Resort NR completo na Mantiqueira. Ampla estrutura para formandos de 9º ano com tirolesa, gincanas, quadras, piscinas aquecidas e festas temáticas.",
+festas: ["Festa das Cores (Holi)", "Neon Party com DJ", "Gincana Noturna NR"],
+inclusos: ["Hospedagem Completa no NR", "5 Refeições diárias", "Equipe Médica e Monitores NR 24h", "Festas Exclusivas"]
+},
+{
+id: 'n2',
+nome: "Hot Park & Rio Quente Resorts - GO",
+foto: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&w=800&q=80",
+diaria: 260,
+resumo: "Maior parque aquático de águas quentes do país! Tobogãs radicais, Praia do Cerrado, rafting e baladas aquáticas exclusivas.",
+festas: ["Pool Party com Espuma", "Sunset Teen na Praia do Cerrado", "Luau das Águas Termais"],
+inclusos: ["Acesso Ilimitado ao Hot Park", "Café e Jantar", "Monitoria VIP", "Balada Teen Privada"]
+},
+{
+id: 'n3',
+nome: "Eldorado Eco Resort - Litoral SP",
+foto: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+diaria: 210,
+resumo: "Resort pé na areia com vasta área verde, passeios de banana boat, fogueira de confraternização e torneios de esportes de praia.",
+festas: ["Luau dos Formandos", "Festa à Fantasia", "Torneio Teen de Beach Tennis"],
+inclusos: ["Pensão Completa", "Passeios Marítimos", "Segurança 24h", "Kit Exclusivo NextTrip"]
+},
+{
+id: 'n4',
+nome: "Brotas Eco Hotel Fazenda - SP",
+foto: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+diaria: 240,
+resumo: "A capital da aventura! Rafting no Rio Jacaré-Pepira, arvorismo, cachoeiras e estrutura completa de hotel fazenda.",
+festas: ["Festa do Pijama Teen", "Balada do Vagalume", "Churrasco da Vitória"],
+inclusos: ["Pensão Completa", "Atividades de Aventura com Equipamentos", "Monitores Especializados", "Seguro Viagem Especial"]
+},
+{
+id: 'n5',
+nome: "Campos do Jordão Mountain Resort - SP",
+foto: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
+diaria: 250,
+resumo: "Clima de montanha com patinação no gelo, parque de aventuras Tarundu, passeios de quadriciclo e jantares de gala.",
+festas: ["Festa do Chocolate", "Balada Teen na Montanha", "Show de Talentos"],
+inclusos: ["Meia Pensão", "Passaporte Aventura Tarundu", "Monitores Exclusivos", "Transporte Executivo de Luxo"]
+}
+]
+},
+terceiro: {
+titulo: "Viagens para o 3º Ano Ensino Médio",
+subtitulo: "A despedida épica do colégio! Sunset parties, beach clubs, atrações nacionais e dias de pura curtição.",
+cor: "brand-neonPink",
+locais: [
+{
+id: 't1',
+nome: "Porto Seguro - Bahia",
+foto: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80",
+diaria: 320,
+resumo: "O destino definitivo dos formandos do Brasil! Complexos praianos gigantescos, Passarela do Descobrimento e megashows na praia.",
+festas: ["Micareta de Formatura", "White Party no Beach Club", "Noite Eletrônica de Gala"],
+inclusos: ["Hotel Exclusivo para Formandos", "Café da Manhã", "Entrada em Todos os Complexos", "Pulseira All-Access"]
+},
+{
+id: 't2',
+nome: "Maresias Beach Club - Litoral SP",
+foto: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+diaria: 310,
+resumo: "Vibe de surf e praia em uma das faixas de areia mais badaladas do Brasil, com sunsets lendários em beach clubs renomados.",
+festas: ["Sunset Eletrônico Pé na Areia", "Funk & Trap Night", "Churrasco Open Bar de Boas-Vindas"],
+inclusos: ["Hospedagem VIP à Beira-Mar", "Passeio de Escuna", "DJs Convidados", "Equipe de Apoio"]
+},
+{
+id: 't3',
+nome: "Costão do Santinho - Florianópolis (SC)",
+foto: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80",
+diaria: 380,
+resumo: "Resort All Inclusive 5 estrelas na Ilha da Magia! Estrutura de luxo integrada à praia do Santinho e baladas como o P12.",
+festas: ["Party no P12 Jurerê", "Pool Party do Verão", "Luau All Inclusive na Praia"],
+inclusos: ["Resort All Inclusive", "Ingresso VIP para Day Club", "Transfer Exclusivo", "Segurança Privada"]
+},
+{
+id: 't4',
+nome: "Balneário Camboriú - SC",
+foto: "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=80",
+diaria: 340,
+resumo: "A metrópole praiana catarinense com passeio no Parque Unipraias, Beto Carrero World e festas nas melhores casas noturnas.",
+festas: ["Festa do Pôr do Sol no Barco Pirata", "Noite no Green Valley", "Festa Temática no Parque"],
+inclusos: ["Hotel Central 4★", "Passaporte Beto Carrero World", "Transfer Exclusivo", "Seguro Viagem"]
+},
+{
+id: 't5',
+nome: "Arraial d'Ajuda - BA",
+foto: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80",
+diaria: 330,
+resumo: "Vibe mágica com praias paradisíacas, o Arraial d'Ajuda Eco Parque e noites agitadas na Mucugê.",
+festas: ["Eco Parque Night", "Luau Pé na Areia", "Festa das Cores Baiana"],
+inclusos: ["Pousada com Piscina", "Passaporte Ilimitado Eco Parque", "Passeios de Jardineira", "Guia e Monitores"]
+}
+]
+},
+faculdade: {
+titulo: "Viagens para Formandos de Faculdade",
+subtitulo: "Open bar premium, festas sem limites, cruzeiros de formatura e beach clubs para selar seu diploma!",
+cor: "brand-neonYellow",
+locais: [
+{
+id: 'f1',
+nome: "Cancún - México (Internacional)",
+foto: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+diaria: 550,
+resumo: "Comemore seu diploma em Cancún! Coco Bongo VIP, passeios de catamarã para Isla Mujeres, resorts All Inclusive e a maior vibe universitária.",
+festas: ["Coco Bongo Show VIP", "Catamarã Open Bar Isla Mujeres", "Beach Club Mandala"],
+inclusos: ["Resort All Inclusive 5★", "Ingressos com Open Bar em Boates", "Seguro Internacional", "Guia Bilingue"]
+},
+{
+id: 'f2',
+nome: "Cruzeiro de Formatura Universitária",
+foto: "https://images.unsplash.com/photo-1548574505-5e2386903385?auto=format&fit=crop&w=800&q=80",
+diaria: 420,
+resumo: "Navio de luxo com fretamento para formandos. Pistas de dança, piscinas, restaurantes internacionais e festas open bar em alto-mar.",
+festas: ["Festa de Gala do Capitão", "Pool Party em Alto Mar", "Sunset Open Bar no Deque"],
+inclusos: ["Cabine com Varanda", "Alimentação & Bebidas Liberadas", "Shows Exclusivos", "Acesso ao Complexo de Lazer"]
+},
+{
+id: 'f3',
+nome: "Búzios & Arraial do Cabo - RJ",
+foto: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80",
+diaria: 390,
+resumo: "O Caribe fluminense! Mansões reservadas com piscina, passeios de escuna com DJ, praias cristalinas e sunsets no Silk Beach Club.",
+festas: ["Silk Beach Club Party", "Boat Party Open Bar", "Festa na Mansão da Turma"],
+inclusos: ["Pousada Boutique ou Mansão VIP", "Passeio de Escuna Privativo", "Open Bar Selecionado", "Transfer Rio/Búzios"]
+},
+{
+id: 'f4',
+nome: "Jericoacoara - CE",
+foto: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=800&q=80",
+diaria: 460,
+resumo: "Dunas, lagoas cristalinas, passeios de buggy 4x4 e sunsets no Alchymist Beach Club para celebrar com classe e pé na areia.",
+festas: ["Sunset na Duna do Pôr do Sol", "Alchymist Beach Club Party", "Luau Open Bar com Forró & Eletrônico"],
+inclusos: ["Pousada de Luxo nas Dunas", "Passeio de Buggy Completo", "Transfer 4x4", "Open Bar de Caipirinhas"]
+},
+{
+id: 'f5',
+nome: "Escarpas do Lago - Capitólio (MG)",
+foto: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+diaria: 410,
+resumo: "A 'Mar de Minas'! Mansões de luxo em Escarpas do Lago, lanchas rápidas pelos Cânions do Lago de Furnas e festas privativas.",
+festas: ["Sunset das Lanchas nos Cânions", "Festa Open Bar na Mansão", "Churrasco VIP de Formatura"],
+inclusos: ["Mansão Privativa em Escarpas", "Passeio de Lancha Exclusivo", "Open Bar & Food Premium", "DJ Particular"]
+}
+]
+}
+};
+
+// FUNÇÃO DE TROCA DE SEÇÕES E RENDEREZAÇÃO
+function showSection(categoria) {
+const homeSection = document.getElementById('section-home');
+const destinosContainer = document.getElementById('destinos-container');
+const cardsGrid = document.getElementById('cards-grid');
+
+if (categoria === 'home') {
+homeSection.classList.remove('hidden');
+destinosContainer.classList.add('hidden');
+window.scrollTo({ top: 0, behavior: 'smooth' });
+return;
+}
+
+// Oculta a Home e exibe a Seção de Destinos
+homeSection.classList.add('hidden');
+destinosContainer.classList.remove('hidden');
+
+const data = destinosData[categoria];
+
+// Atualiza Título e Subtítulo
+document.getElementById('categoria-titulo').innerText = data.titulo;
+document.getElementById('categoria-subtitulo').innerText = data.subtitulo;
+
+// Renderiza Cards
+cardsGrid.innerHTML = '';
+data.locais.forEach(local => {
+const cardHTML = `
+<div class="glass-card rounded-3xl overflow-hidden border border-slate-800 hover:border-slate-600 transition flex flex-col justify-between group">
+<div>
+<div class="relative h-52 overflow-hidden">
+<img src="${local.foto}" alt="${local.nome}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+<span class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md text-white font-bold text-xs px-3 py-1 rounded-full border border-slate-700">
+<i class="fa-solid fa-hotel text-brand-neonYellow mr-1"></i> R$ ${local.diaria}/dia por pessoa
+</span>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-heading font-black text-white mb-2">${local.nome}</h3>
+<p class="text-slate-400 text-xs leading-relaxed mb-4">${local.resumo}</p>
+
+<div class="mb-4">
+<span class="text-[11px] font-bold text-brand-neonCyan uppercase tracking-wider block mb-2">🎉 Festas & Atrações:</span>
+<div class="flex flex-wrap gap-1">
+${local.festas.map(festa => `<span class="bg-slate-800 text-slate-300 text-[10px] px-2.5 py-1 rounded-md border border-slate-700">${festa}</span>`).join('')}
+</div>
+</div>
+</div>
+</div>
+
+<div class="p-6 pt-0 flex gap-2">
+<button onclick="openModal('${categoria}', '${local.id}')" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-xs transition border border-slate-700">
+Ver Detalhes
+</button>
+<a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20destino%20${encodeURIComponent(local.nome)}" target="_blank" class="bg-green-500 hover:bg-green-600 text-white p-2.5 rounded-xl flex items-center justify-center transition" title="Chamar no WhatsApp">
+<i class="fa-brands fa-whatsapp text-lg"></i>
+</a>
+</div>
+</div>
+`;
+cardsGrid.innerHTML += cardHTML;
+});
+
+// Rola suavemente para o topo do container
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// CÁLCULO DINÂMICO DE ORÇAMENTO
+function calcularOrcamento() {
+const valorDiaria = parseFloat(document.getElementById('calc-turma').value);
+const qtdDias = parseInt(document.getElementById('calc-dias').value);
+const qtdAlunos = parseInt(document.getElementById('calc-alunos').value) || 1;
+
+// Lógica simples de cálculo com desconto proporcional por quantidade de alunos
+let desconto = 1;
+if (qtdAlunos > 40) desconto = 0.90; // 10% desconto para turmas grandes
+else if (qtdAlunos > 25) desconto = 0.95; // 5% desconto
+
+const totalPorAluno = (valorDiaria * qtdDias) * desconto;
+
+document.getElementById('resultado-por-aluno').innerText = `R$ ${totalPorAluno.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+// Atualiza link do WhatsApp na calculadora
+const msg = `Olá! Fiz uma simulação para minha turma de ${qtdAlunos} alunos por ${qtdDias} dias e gostaria de um orçamento oficial!`;
+document.getElementById('btn-orcamento-whatsapp').href = `https://wa.me/5511999999999?text=${encodeURIComponent(msg)}`;
+}
+
+// EVENT LISTENERS DA CALCULADORA
+document.getElementById('calc-turma').addEventListener('change', calcularOrcamento);
+document.getElementById('calc-dias').addEventListener('change', calcularOrcamento);
+document.getElementById('calc-alunos').addEventListener('input', calcularOrcamento);
+
+function scrollToCalc() {
+document.getElementById('calculadora').scrollIntoView({ behavior: 'smooth' });
+}
+
+// LÓGICA DO MODAL
+function openModal(categoria, localId) {
+const local = destinosData[categoria].locais.find(l => l.id === localId);
+if (!local) return;
+
+document.getElementById('modal-img').src = local.foto;
+document.getElementById('modal-title').innerText = local.nome;
+document.getElementById('modal-desc').innerText = local.resumo;
+document.getElementById('modal-badge').innerText = destinosData[categoria].titulo.split(" ")[2] + " " + (destinosData[categoria].titulo.split(" ")[3] || "");
+document.getElementById('modal-price').innerText = `R$ ${local.diaria},00 / dia`;
+
+const inclusiveList = document.getElementById('modal-inclusive');
+inclusiveList.innerHTML = local.inclusos.map(item => `<li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i> ${item}</li>`).join('');
+
+const msg = `Olá, gostaria de fechar/solicitar proposta para o destino ${local.nome}!`;
+document.getElementById('modal-whatsapp-btn').href = `https://wa.me/5511999999999?text=${encodeURIComponent(msg)}`;
+
+document.getElementById('modal-destino').classList.remove('hidden');
+document.getElementById('modal-destino').classList.add('flex');
+}
+
+function closeModal() {
+document.getElementById('modal-destino').classList.add('hidden');
+document.getElementById('modal-destino').classList.remove('flex');
+}
+
+// INICIALIZAÇÃO
+window.onload = function() {
+calcularOrcamento();
+};
+</script>
+</body>
+</html>
